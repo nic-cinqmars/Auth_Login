@@ -2,16 +2,16 @@
 
 namespace Auth_Login
 {
+    public enum ACCESS
+    {
+        None = -1,
+        Admin = 0,
+        Residential = 1,
+        Buisness = 2
+    }
+
     internal static class AccessManager
     {
-        public enum ACCESS
-        {
-            None = -1,
-            Admin = 0,
-            Residential = 1,
-            Buisness = 2
-        }
-
         private static readonly string ACCESS_PATH = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Resources\\access.dat";
         private static readonly string ACCESS_PASSWORD = "Password";
         
@@ -29,7 +29,10 @@ namespace Auth_Login
                     string decryptedList = Cryptography.DecryptString(encryptedText[0], ACCESS_PASSWORD, salt);
                     foreach (string userAccess in decryptedList.Split(';'))
                     {
-                        _accessList.Add(userAccess);
+                        if (userAccess != "")
+                        {
+                            _accessList.Add(userAccess);
+                        }
                     }
                 }
             }
@@ -69,10 +72,30 @@ namespace Auth_Login
         public static string CreateAccess(User user)
         {
             string access = user.GetUsername();
-            access += ":0";
+            access += ":-1";
             _accessList.Add(access);
             SaveList();
             return access;
+        }
+
+        public static void SaveUserAccess(User user)
+        {
+            List<ACCESS> userAccess = user.GetAccess();
+            string newAccessEntry = user.GetUsername();
+            newAccessEntry += ":";
+            foreach (ACCESS access in userAccess)
+            {
+                newAccessEntry += (int)access;
+                newAccessEntry += ",";
+            }
+            newAccessEntry = newAccessEntry.Remove(newAccessEntry.Length - 1);
+
+            int oldAccessEntry = _accessList.FindIndex(accessEntry => accessEntry.Contains(user.GetUsername()));
+            if (oldAccessEntry != -1)
+            {
+                _accessList[oldAccessEntry] = newAccessEntry;
+            }
+            SaveList();
         }
 
         private static void SaveList()

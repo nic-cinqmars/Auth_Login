@@ -19,3 +19,5 @@ C:\Users\Burger\Desktop\C#\Auth_Login\obj\Debug\net6.0-windows\Auth_Login.Admin.
 C:\Users\Burger\Desktop\C#\Auth_Login\obj\Debug\net6.0-windows\Auth_Login.Buisness.resources
 C:\Users\Burger\Desktop\C#\Auth_Login\obj\Debug\net6.0-windows\Auth_Login.Residential.resources
 C:\Users\Burger\Desktop\C#\Auth_Login\obj\Debug\net6.0-windows\Auth_Login.NoAccess.resources
+C:\Users\Burger\Desktop\C#\Auth_Login\obj\Debug\net6.0-windows\Auth_Login.AccessModifier.resources
+C:\Users\Burger\Desktop\C#\Auth_Login\obj\Debug\net6.0-windows\Auth_Login.ChangePassword.resources

@@ -21,5 +21,10 @@ namespace Auth_Login
         {
             noAccessTextBox.Text = noAccessTextBox.Text.Replace("{username}", Authentifier.GetCurrentUsername());
         }
+
+        private void NoAccess_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

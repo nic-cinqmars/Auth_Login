@@ -35,6 +35,7 @@
             this.registerButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.infoLabel = new System.Windows.Forms.Label();
+            this.infoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameBox
@@ -95,15 +96,26 @@
             this.infoLabel.ForeColor = System.Drawing.Color.Red;
             this.infoLabel.Location = new System.Drawing.Point(25, 153);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(177, 34);
+            this.infoLabel.Size = new System.Drawing.Size(177, 51);
             this.infoLabel.TabIndex = 6;
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoButton
+            // 
+            this.infoButton.Location = new System.Drawing.Point(28, 124);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(25, 26);
+            this.infoButton.TabIndex = 7;
+            this.infoButton.Text = "?";
+            this.infoButton.UseVisualStyleBackColor = true;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 196);
+            this.ClientSize = new System.Drawing.Size(232, 206);
+            this.Controls.Add(this.infoButton);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.registerButton);
@@ -111,8 +123,10 @@
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Login";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,5 +142,6 @@
         private Button registerButton;
         private Button loginButton;
         private Label infoLabel;
+        private Button infoButton;
     }
 }

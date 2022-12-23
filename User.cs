@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Auth_Login
 {
-    internal class User
+    public class User
     {
-        List<AccessManager.ACCESS> access;
+        List<ACCESS> access;
         string username;
         byte[] salt;
 
@@ -24,9 +24,24 @@ namespace Auth_Login
             return username;
         }
 
-        public List<AccessManager.ACCESS> GetAccess()
+        public List<ACCESS> GetAccess()
         {
             return access;
+        }
+
+        public void AddAccess(ACCESS access)
+        {
+            this.access.Add(access);
+        }
+
+        public void RemoveAccess(ACCESS access)
+        {
+            this.access.Remove(access);
+        }
+
+        public void SaveAccess()
+        {
+            AccessManager.SaveUserAccess(this);
         }
     }
 }

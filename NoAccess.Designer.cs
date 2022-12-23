@@ -52,8 +52,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 271);
             this.Controls.Add(this.noAccessTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NoAccess";
             this.Text = "No Access";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NoAccess_FormClosed);
             this.Load += new System.EventHandler(this.NoAccess_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
